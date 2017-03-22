@@ -1,10 +1,9 @@
-package dev.graphics2d.demo;
+package java2dgraphic.core.demo;
 
 import java.awt.EventQueue;
+import java2dgraphic.core.model.ImagePanel;
 
 import javax.swing.JFrame;
-
-import dev.graphics2d.model.ImagePanel;
 
 public class TransformDemo extends JFrame {
 	public TransformDemo() {
