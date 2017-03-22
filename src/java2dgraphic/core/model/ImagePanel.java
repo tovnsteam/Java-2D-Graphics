@@ -17,16 +17,16 @@ public class ImagePanel extends JPanel {
 		
 		Image img = g.generate(ImageGenerator.SimpleImage.CIRCLE);
 		
-		ImageScale imageScale = new ImageScale(2, 2);
-		imageScale.setImage(img);
-		imageScale.transform();
+//		ImageScale imageScale = new ImageScale(2, 2);
+//		imageScale.setImage(img);
+//		imageScale.transform();
 		
-		ImageRotate rotateImage = new ImageRotate(Math.toRadians(45));
-		rotateImage.setImage(img);
-		Image img2 = rotateImage.transform();
+		ImageTransit transitImage = new ImageTransit(10, 10);
+		transitImage.setImage(img);
+		Image img2 = transitImage.transform();
 		
 
-		bufferedImage = img2.image;
+		bufferedImage = transitImage.getImage().image;
 		
 //		bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 //		for (int y = 0; y < bufferedImage.getHeight(); y++) {

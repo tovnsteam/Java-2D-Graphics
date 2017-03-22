@@ -6,6 +6,8 @@
 package java2dgraphic.core.model;
 
 import java.awt.Graphics2D;
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 
 /**
@@ -36,16 +38,32 @@ public class Image {
     }
     
     public void transit(int x, int y){
-        drawer.translate(x, y);
+        AffineTransform tx = new AffineTransform();
+        tx.translate(x, y);
+
+        AffineTransformOp op = new AffineTransformOp(tx,
+            AffineTransformOp.TYPE_BILINEAR);
+        image = op.filter(image, null);
     }
     
     public void scale(double scalex, double scaley)
     {
-        drawer.scale(scalex, scaley);
+        AffineTransform tx = new AffineTransform();
+        tx.scale(scalex, scaley);
+
+        AffineTransformOp op = new AffineTransformOp(tx,
+            AffineTransformOp.TYPE_BILINEAR);
+        image = op.filter(image, null);
     }
     
     public void rotate(double theta){
-        drawer.rotate(theta);
+        AffineTransform tx = new AffineTransform();
+        tx.rotate(theta, image.getWidth() / 2, image.getHeight() / 2);
+
+        AffineTransformOp op = new AffineTransformOp(tx,
+            AffineTransformOp.TYPE_BILINEAR);
+        image = op.filter(image, null);
+
     }
     
     public int getHeight(){

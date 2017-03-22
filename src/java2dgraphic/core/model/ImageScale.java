@@ -30,6 +30,10 @@ public class ImageScale implements ImageTransform {
     public void setImage(Image img) {
         this.img = img;
     }
+    
+    public Image getImage() {
+        return img;
+    }
 
     public ImageScale(double scaleX, double scaleY) {
         this.scaleX = scaleX;

@@ -30,6 +30,10 @@ public class ImageTransit implements ImageTransform {
     public void setImage(Image img) {
         this.img = img;
     }
+    
+    public Image getImage() {
+    	return img;
+    }
 
     public ImageTransit(int x, int y) {
         this.x = x;
